@@ -1,0 +1,17 @@
+from sys import argv
+
+script = argv
+print(script)
+
+filename = input()
+txt = open(filename)
+
+print(f"Here's your file {filename}:")
+print(txt.read())
+
+print("Type the filename again:")
+file_again = input("> ")
+txt_again = open(file_again, "a")
+txt_again.write('\nHello World!')
+txt_again = open(file_again)
+print(txt_again.read())
