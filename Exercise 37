@@ -1,0 +1,108 @@
+# keyword:and
+if True and True:
+    print("True")
+else:
+    print("False")
+
+# keyword:as
+#读取文件的三种情况：第一种情况
+file = open("from.txt")
+data = file.read()
+file.close()
+#第二种情况
+try:
+    file = open("from.txt")
+    data = file.read()
+except IOError:
+    print("Error, 没有找到文件或读取文件失败")
+finally:
+    file.close()
+#第三种情况
+with open("from.txt") as file:
+    data = file.read()
+
+# keyword:assert
+assert(1 == 1)
+
+# keyword:break
+for letter in 'python':
+    if letter == 'h':
+        break
+    print ('当前字母：', letter)
+
+# keyword:class
+class A:
+    def __init__(self, name, age, sex):
+        self.name = name
+        self.age = age
+        self.sex = sex
+    def speak(self):
+        print("I am {} years old, my name is {}, I'm a {}".format(self.age, self.name, self.sex))
+a = A("Jason", 20, "boy")
+print(a.name)
+a.speak()
+
+class B(A):  #继承
+    grade = ''
+    def __init__(self, name, age, sex, grade):
+        print("I'm subclass's __init__")
+        self.grade = grade
+        A.__init__(self, name, age, sex)
+    def speak(self):
+        A.speak(self)
+        print("I am {} years old, my name is {}, I'm a {}".format(self.age, self.name, self.sex))
+
+b = B("Bella", 19, "girl", "junior")
+print(b.name)
+print(b.__dict__)
+b.speak()
+
+# keyword:continue
+for letter in 'python':
+    if letter == 'h':
+        continue
+    print(letter)
+
+# keyword:def
+def Hello_world():
+    print("Hello world!")
+Hello_world()
+
+# keyword:del
+if __name__=='__main__':
+    a = 1
+    b = a
+    c = a
+    del a
+    del b
+    print(c)
+
+if __name__ == '__main__':
+    li = [1,2,3,4,5]
+    first = li[0]
+    del li[0]
+    print(li)
+    print(first)
+
+# keyword:elif
+for letter in 'python':
+    if letter == 'h':
+        print("H")
+    elif letter == 'o':
+        print("O")
+    else:
+        print(letter)
+        
+# keyword:exec
+x = 10
+expr = """
+z = 30
+sum = x + y + z
+print(sum)
+"""
+def func():
+    y = 20
+    exec(expr)
+    exec(expr, {'x':1, 'y':2})
+    exec(expr, {'x':1, 'y':2}, {'y':3, 'z':4})
+func()
