@@ -92,7 +92,7 @@ for letter in 'python':
         print("O")
     else:
         print(letter)
-        
+
 # keyword:exec
 x = 10
 expr = """
@@ -106,3 +106,60 @@ def func():
     exec(expr, {'x':1, 'y':2})
     exec(expr, {'x':1, 'y':2}, {'y':3, 'z':4})
 func()
+
+# keyword:global
+var = 0
+print("var = {}".format(var))
+def f():
+    global var
+    var = 5
+f()
+print("var = {}".format(var))
+
+# keyword:is
+print(1 is 1)
+
+# keyword:lambda
+s = lambda y: y ** y
+print(s(3))
+
+# keyword:not
+print(not 1 == 1)
+
+# keyword:or
+print(True or False)
+
+# keyword: pass
+for letter in 'python':
+    if letter == 't':
+        pass
+        print("Here is pass.")
+    print(letter)
+
+# keyword:raise # 这里使用用户自定义异常
+try:
+     s = None
+     if s is None:
+         print ("s 是空对象")
+         # raise ValueError("No")
+         # raise NameError     #如果引发NameError异常，后面的代码将不能执行
+     print (len(s))  #这句不会执行，但是后面的except还是会走到
+except TypeError:
+     print ("空对象没有长度")
+
+# keyword:while
+count = 0
+while count < 5:
+    print(count, " 小于5")
+    count = count + 1
+else:
+    print(count, "大于或等于 5")
+
+# keyword:yield # 有效使用yield可以节约系统资源
+def func(n):
+    for i in range(n):
+        yield i * 2
+f = func(5)
+for i in f:
+    print(i)
+
