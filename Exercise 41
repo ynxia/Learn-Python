@@ -2,6 +2,42 @@ import random
 from urllib.request import urlopen
 import sys
 
+print("#" * 40)
+# 语法解释
+# strip()
+a = "      123"
+print(a)
+print(a.strip())
+# capitalize()
+a = "this BooK IS gOOD!"
+print(a.capitalize())
+# random.sample()
+# 返回list中的任意指定个item
+list = [1,2,3,4,5,6,7,8,9]
+slice = random.sample(list, 5)
+print(slice)
+# count()
+a = "i i i i i i a a a bd d d   d"
+print(a.count('i'))
+# join()
+str = "-"
+seq = ["a","b","c","d"]
+print(str.join(seq))
+# replace()
+a = "This is a book called HARRY POTTER."
+print(a.replace("is", "was", 1))
+print(a.replace("is", "was"))
+# keys()
+dict = {"name":"wifi", "password":"123456"}
+print(dict.keys())
+# shuffle()
+# 随机修改序列顺序
+list = [1,2,3,4]
+random.shuffle(list)
+print(list)
+
+print("#" * 40)
+
 WORD_URL = "http://learnpythonthehardway.org/words.txt"
 WORDS = []
 
